@@ -1,0 +1,98 @@
+body {
+  background-color: rgb(50, 53, 61);
+  color: aliceblue;
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body header{
+  height: 50px;
+  width: 100%;
+  /* background-color:rgb(60, 63, 71) ; */
+  text-align: center;
+}
+.table {
+  width: 100%;
+}
+.first-row {
+  background-color: rgb(29, 72, 214);
+  text-align: center;
+  height: 40px;
+}
+.item-row {
+  background-color: rgb(62, 66, 112);
+  text-align: center;
+  height: 40px;
+}
+.methods {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+.button {
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 20px -5px rgba(0,0,0,0.75);
+}
+.add-item {
+  background-color: rgb(12, 87, 12);
+}
+.modify-item {
+  background-color: rgb(192, 143, 18);
+}
+.delete-item {
+  background-color: rgb(120, 17, 17);
+}
+.button:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.modal {
+  height: 700px;
+  width: 1200px;
+  background-color: rgb(36, 45, 67);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-content header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form label {
+  font-size: 20px;
+}
+.close {
+  font-size: 60px;
+  cursor: pointer;
+  margin-right: 30px;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
+}
+.input {
+  height: 50px;
+  width: 600px;
+  margin: 20px;
+  font-size: 40px;
+  background-color: white;
+}
