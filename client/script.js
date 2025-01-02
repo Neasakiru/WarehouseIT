@@ -44,23 +44,6 @@ async function addItem(item) {
   }
 }
 
-// Function - Update data in db
-async function updateItem(id, item) {
-  try {
-    const response = await fetch(`${apiUrl}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(item),
-    });
-    const data = await response.json();
-    console.log("Item updated successfully:", data);
-  } catch (error) {
-    console.error("Error updating item:", error);
-  }
-}
-
 // Function to delete an item from the API
 async function deleteItem(id) {
   try {
@@ -77,7 +60,6 @@ async function deleteItem(id) {
 fetchData();
 
 const addItemButton = document.querySelector(".add-item");
-const modifyItemButton = document.querySelector(".modify-item");
 const deleteItemButton = document.querySelector(".delete-item");
 const addSubmitButton = document.querySelector("#submit");
 
@@ -91,47 +73,21 @@ addItemButton.addEventListener(
   })
 );
 
-// modifyItemButton.addEventListener(
-//   "click",
-//   ( modifyItem = () => {
-//     const id = prompt();
-//     if(id != null)
-//     modal.classList.toggle("hidden");
+deleteItemButton.addEventListener("click", () => {
+  const id = prompt();
+  if (id != null) deleteItem(id);
+});
 
-//   })
-// );
+closeButton.addEventListener("click", () => {
+  modal.classList.toggle("hidden");
+});
 
-deleteItemButton.addEventListener(
-  "click",
-  (deleteItem = () => {
-    const id = prompt();
-    if (id != null) deleteItem(id);
-  })
-);
-closeButton.addEventListener(
-  "click",
-  (closeModal = () => {
-    modal.classList.toggle("hidden");
-  })
-);
-addSubmitButton.addEventListener(
-  "click",
-  (submitAdd = () => {
-    const newItem = {
-      category: document.querySelector("#category").value,
-      model: document.querySelector("#model").value,
-      serialNumber: document.querySelector("#category").value,
-      warehouse: document.querySelector("#category").value,
-    };
-    addItem(newItem);
-  })
-);
-
-// const itemIdToUpdate = "a12fb55f-88b6-4b85-b9cb-851eda4ace4a"; // Replace with the actual item ID
-// const updatedItem = {
-//   category: "Ele",
-//   model: "Updated Smartphone",
-//   serialNumber: "654321",
-//   warehouse: "B2",
-// };
-// updateItem(itemIdToUpdate, updatedItem);
+addSubmitButton.addEventListener("click", () => {
+  const newItem = {
+    category: document.querySelector("#category").value,
+    model: document.querySelector("#model").value,
+    serialNumber: document.querySelector("#sn").value,
+    warehouse: document.querySelector("#warehouse").value,
+  };
+  addItem(newItem);
+});
